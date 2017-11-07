@@ -5,14 +5,14 @@ using UnityEngine;
 public class BallControl : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
-	private Vector2 vel;
+	private Vector3 vel;
 
 	void GoBall() {
 		float rand = Random.Range (0, 2);
 		if (rand < 1) {
-			rb2d.AddForce (new Vector2 (20, -15));
+			rb2d.AddForce (new Vector3 (20, -15, 1));
 		} else {
-			rb2d.AddForce (new Vector2 (-20, -15));
+			rb2d.AddForce (new Vector3 (-20, -15, -1));
 		}
 	}
 
@@ -23,9 +23,9 @@ public class BallControl : MonoBehaviour {
 	}
 
 	void ResetBall() {
-		vel = new Vector2 (0, 0);
+		vel = new Vector3 (0, 0, 0);
 		rb2d.velocity = vel;
-		transform.position = Vector2.zero;
+		transform.position = Vector3.zero;
 	}
 
 	void RestartGame() {
